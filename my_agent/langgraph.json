@@ -1,0 +1,33 @@
+{
+  "entrypoint": "my_agent.agent:graph",
+
+  "dependencies": [
+    "../",
+    "./"
+  ],
+
+  "graphs": {
+    "my_agent": "./agent.py:graph"
+  },
+
+  "env": "./.env",
+  "python_version": "3.11",
+
+  "http": {
+    "cors": {
+      "allow_origins": [
+       "*"
+      ],
+      "allow_methods": ["*"],
+      "allow_headers": ["*"],
+      "allow_credentials": true
+    }
+  },
+
+  "checkpointer": {
+    "ttl": {
+      "strategy": "delete",
+      "sweep_interval_minutes": 1440
+    }
+  }
+}

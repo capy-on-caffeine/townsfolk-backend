@@ -1,0 +1,30 @@
+{
+  "entrypoint": "my_agent.agent:graph",
+  "dependencies": [
+    "../",
+    "./"
+  ],
+  "graphs": {
+    "persona_agent": "./agent.py:graph"
+  },
+  "env": "./.env",
+  "python_version": "3.11",
+
+  "http": {
+    "cors": {
+      "allow_origins": ["*"],
+      "allow_methods": ["*"],
+      "allow_headers": ["*"],
+      "allow_credentials": false,
+      "expose_headers": ["*"],
+      "max_age": 86400
+    }
+  },
+
+  "checkpointer": {
+    "ttl": {
+      "strategy": "delete",
+      "sweep_interval_minutes": 1440
+    }
+  }
+}
