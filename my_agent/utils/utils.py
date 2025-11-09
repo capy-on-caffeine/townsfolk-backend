@@ -13,7 +13,7 @@ class MongoDBClient:
     """
 
     def __init__(self, uri: Optional[str] = None, default_db_name: Optional[str] = None):
-        self.uri = uri or 'mongodb+srv://arnavanand2004:zDFEdLkQsHztqSpu@townsfolk.okh5mhn.mongodb.net/?appName=townsfolk'
+        self.uri = uri
         self.default_db_name = default_db_name or os.getenv("MONGODB_DB_NAME")
         if not self.uri:
             raise ValueError("MongoDB URI is missing. Set MONGODB_URI environment variable.")
